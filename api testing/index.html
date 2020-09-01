@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="script.js"></script>
+<!-- <script type="text/javascript">
+    var APIkey = "bcd3169b-4e47-4e30-af8c-602d1c987678"
+    var queryUrl = "https://api.thesneakerdatabase.com/v1/sneakers?limit=10";
+    $.ajax({
+        url: queryUrl,
+        method: "GET",
+    }).then(function( response){
+        console.log(response);
+
+    }) -->
+
+    <header class="head">
+      <h4 class="projectName text-center">Sneaker Searcher</h4>
+      <div class="dropdown align-center">
+        <button
+          class="btn btn-secondary dropdown-toggle align-center btnText"
+          type="button"
+          id="dropdownMenuButton"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+        <div class="top nav">
+            <a class="active" href="#home"> Home </a>
+            <a href="Profile">Profile </a>
+            <a href="Purchased">Purchased </a>  
+        </button>
+        <div
+          class="dropdown-menu"
+          aria-labelledby="dropdownMenuButton"
+          style="max-height: 200px; overflow-y: auto"
+        ></div>
+      </div>
+    </header>
+   
+      <div class="search-container">
+        <form action="">
+          <input type="text" placeholder="Search sneaker" id="sneakerSearch" name="search">
+          <input type="submit" id="selectShoe"></button>
+        </form>
+      </div>
+    </div>
+    <div class="container">
+        <div class="card" id="shoe show-er">
+            <h1 id="shoeName"></h1>
+            <h2 id="brand"></h2>
+            <h2 id="shoeColor"></h2>
+            <h2 id="gender"></h2>
+            <h2 id="id"></h2>
+            <h2 id="releaseDate"></h2>
+            <h2 id="retailPrice"></h2>
+            <h2 id="shoe"></h2>
+            <h2 id="styleId"></h2>
+            <h2 id="title"></h2>
+            <h2 id="year"></h2>
+            <img id="media"></img>
+        
+        </div>
+        
+    </div>
+  </body>
+</html>
