@@ -122,10 +122,11 @@ function updatePage(shoeData) {
         $shoeListItem.append("<h5>" + name + "</h5>")
     }
 
-    var image = shoe.media;
-    if(image) {
-        $shoeListItem.append('<img>'+ image +"</img>")
-    }
+    var image = $("<img>");
+    image.addClass ("card-img-top img-thumbnail shadow-sm border-bottom-secondary");
+    image.attr ("src", shoe.media.imageUrl);
+        $shoeListItem.append(image)
+    
 
     var brand = shoe.brand;
 
