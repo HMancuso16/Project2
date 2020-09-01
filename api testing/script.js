@@ -35,14 +35,16 @@
 
 function buildQueryURL(){
 
+    var select = $("#shoe-count").val().trim()
+
     var API = {"api-key":  "bcd3169b-4e47-4e30-af8c-602d1c987678"};
-    var queryURL = "https://api.thesneakerdatabase.com/v1/sneakers?limit=10";
+    var queryURL = "https://api.thesneakerdatabase.com/v1/sneakers?limt=10"  ;
 
     // Set the API key
-    // var queryParams = {"api-key":  "bcd3169b-4e47-4e30-af8c-602d1c987678"};
+    // var queryParams = 
     
   // Grab text the user typed into the search input, add to the queryParams object
-    queryParams.q = $("#search-term").val().trim();
+    queryParams = $("#search-term").val().trim();
 
     
   // If the user provides a releaseDate, include it in the queryParams object
@@ -52,6 +54,7 @@ function buildQueryURL(){
         queryParams.releaseDate = releaseDate
     }
 
+  
      
     // logging our URL so we can troubleshoot with it 
     console.log("---------------\nURL: " + queryURL + "\n---------------");
