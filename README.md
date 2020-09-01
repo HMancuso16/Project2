@@ -21,6 +21,7 @@
 * HTML
 * JavaScript
 * Passport
+* Cloudinary
 
 <h2>Issues faced</h2>
 
