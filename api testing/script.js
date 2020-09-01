@@ -160,6 +160,10 @@ function updatePage(shoeData) {
     $shoeListItem.append("<h5>" + retailPrice + "</h5>");
     //   console.log(shoe.retailPrice);
 
+    var want = $("<button>'Want'</button>");
+    var kick = $("<button>'Kick It'</button>")
+    $shoeListItem.append(want, kick)
+
     // Append the article
     $shoeList.append($shoeListItem);
   }
