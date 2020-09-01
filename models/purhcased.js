@@ -1,1 +1,0 @@
-// sequelize a purchased table
