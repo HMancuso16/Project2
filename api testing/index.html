@@ -53,13 +53,51 @@
               <!-- Here we create the text box for capturing the search term-->
               <div class="form-group">
                 <label for="search">Search Term:</label>
-                <input type="text" class="form-control" id="search-term">
+                <input type="text" class="form-control" id="name">
               </div>
 
-              <!-- Here we capture the number of records that the user wants to retrieve  -->
               <div class="form-group">
-                <label for="search">Result amount:</label>
-                <input type="text" class="form-control" id="shoe-count">
+                <label for="pwd">Number of Shoes to Retrieve:</label>
+                <select id="shoe-count" class="custom-select" aria-labelledby="dropdownMenuButton">
+                  <option value="10">10</option>
+                  <!-- Setting the option for 5 as default -->
+                  <option value="50" selected>50</option>
+                  <option value="100">100</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="pwd">brand:</label>
+                <select id="brand" class="custom-select" aria-labelledby="dropdownMenuButton">
+                  <option value="">Converse</option>
+                  <!-- Setting the option for 5 as default -->
+                  <option value="nike" selected>Nike</option>
+                  <option value="jordan">Jordan</option>
+                  <option value= "new balance">New Balance</option>
+                  <option value= "puma">Puma</option>
+                  <option value= "reebok">Reebok</option>
+                  <option value= "saucony">Saucony</option>
+                  <option value= "under armor">Under Armor</option>
+                  <option value= "vans">Vans</option>
+                  <option value= "yeezy">Yeezy's</option>
+                  <option value= "ADIDAS">ADIDAS</option>
+                  <option value= "ASIC">ASIC</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="pwd">gender:</label>
+                <select id="gender" class="custom-select" aria-labelledby="dropdownMenuButton">
+                  <option value="women">WOMEN</option>
+                  <!-- Setting the option for 5 as default -->
+                  <option value="unisex" >UNISEX</option>
+                  <option value="toddler">TODDLER</option>
+                  <option value="preschool">PRESCHOOL</option>
+                  <option value="men" selected>MEN</option>
+                  <option value="infant">INFANT</option>
+                  <option value="child">CHILD</option>
+                 
+                </select>
               </div>
 
               <!-- Here we capture the Start Year Parameter-->
@@ -68,11 +106,6 @@
                 <input type="text" class="form-control" id="release-year">
               </div>
 
-              <!-- Here we capture the End Year Parameter -->
-              <div class="form-group">
-                <label for="title">title (Optional):</label>
-                <input type="text" class="form-control" id="title">
-              </div>
 
               <!-- Here we have our final submit button -->
               <button type="submit" class="btn btn-default" id="run-search">
@@ -97,11 +130,11 @@
           <!-- card Heading for the retrieved articles box -->
           <div class="card-header">
             <strong>
-              <i class="fa fa-table"></i> Top Articles</strong>
+              <i class="fa fa-table"></i> Top Shoes</strong>
           </div>
 
           <!-- This main card will hold each of the resulting articles -->
-          <div class="card-body" id="article-section">
+          <div class="card-body" id="shoeList">
           </div>
         </div>
       </div>
