@@ -112,7 +112,7 @@ function updatePage(shoeData) {
     var title = shoe.title;
 
     if (title) {
-      console.log(title);
+    //   console.log(title);
       $shoeListItem.append("<h5>" + title + "</h5>");
     }
 
@@ -124,12 +124,13 @@ function updatePage(shoeData) {
 
     var image = shoe.media;
     if(image) {
-        $shoeListItem.append("<i>"+ image +"</i>")
+        $shoeListItem.append('<img>'+ image +"</img>")
     }
+
     var brand = shoe.brand;
 
     if (brand) {
-      console.log(brand);
+    //   console.log(brand);
       $shoeListItem.append("<h5>" + brand + "</h5>");
     }
 
