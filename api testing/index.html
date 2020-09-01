@@ -1,73 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="script.js"></script>
-<!-- <script type="text/javascript">
-    var APIkey = "bcd3169b-4e47-4e30-af8c-602d1c987678"
-    var queryUrl = "https://api.thesneakerdatabase.com/v1/sneakers?limit=10";
-    $.ajax({
-        url: queryUrl,
-        method: "GET",
-    }).then(function( response){
-        console.log(response);
+<head>
+  <meta charset="UTF-8">
+  <title>Shoe Search</title>
+  <!-- Bootstrap CSS CDN  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
 
-    }) -->
+  <!-- Font Awesome CSS Icons (For cool glyphicons) -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 
-    <header class="head">
-      <h4 class="projectName text-center">Sneaker Searcher</h4>
-      <div class="dropdown align-center">
-        <button
-          class="btn btn-secondary dropdown-toggle align-center btnText"
-          type="button"
-          id="dropdownMenuButton"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-        <div class="top nav">
-            <a class="active" href="#home"> Home </a>
-            <a href="Profile">Profile </a>
-            <a href="Purchased">Purchased </a>  
-        </button>
-        <div
-          class="dropdown-menu"
-          aria-labelledby="dropdownMenuButton"
-          style="max-height: 200px; overflow-y: auto"
-        ></div>
-      </div>
-    </header>
-   
-      <div class="search-container">
-        <form action="">
-          <input type="text" placeholder="Search sneaker" id="sneakerSearch" name="search">
-          <input type="submit" id="selectShoe"></button>
-        </form>
-      </div>
+  <!-- Style to fix the issue of text extending past card length -->
+  <style>
+    .card-body a {
+      word-break: break-all;
+    }
+
+    .articleHeadline {
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Main Bootstrap Search -->
+  <div class="container">
+
+    <!-- Jumbotron for Title -->
+    <div class="jumbotron" style="background-color: #20315A ; color: white;">
+      <h1 class="text-center">
+        <strong>
+          <i class="fa fa-newspaper-o"></i> Shoe Search</strong>
+      </h1>
     </div>
-    <div class="container">
-        <div class="card" id="shoe show-er">
-            <h1 id="shoeName"></h1>
-            <h2 id="brand"></h2>
-            <h2 id="shoeColor"></h2>
-            <h2 id="gender"></h2>
-            <h2 id="id"></h2>
-            <h2 id="releaseDate"></h2>
-            <h2 id="retailPrice"></h2>
-            <h2 id="shoe"></h2>
-            <h2 id="styleId"></h2>
-            <h2 id="title"></h2>
-            <h2 id="year"></h2>
-            <img id="media"></img>
-        
+
+    <!-- Row for Searching New York Times -->
+    <div class="row">
+      <div class="col-sm-12">
+        <br>
+        <!-- First card is for handling the search parameters -->
+        <div class="card">
+          <div class="card-header">
+            <strong>
+              <i class="fa fa-list-alt"></i> Search Parameters</strong>
+          </div>
+          <div class="card-body">
+
+            <!-- Here we create an HTML Form for handling the inputs-->
+            <form role="form">
+
+              <!-- Here we create the text box for capturing the search term-->
+              <div class="form-group">
+                <label for="search">Search Term:</label>
+                <input type="text" class="form-control" id="search-term">
+              </div>
+
+              <!-- Here we capture the number of records that the user wants to retrieve  -->
+              <div class="form-group">
+                <label for="pwd">Number of Records to Retrieve:</label>
+                <select id="shoe-count" class="custom-select" aria-labelledby="dropdownMenuButton">
+                  <option selected value="10">10</option>
+                  <!-- Setting the option for 5 as default -->
+                  <option value="50" selected>50</option>
+                  <option value="100">100</option>
+                </select>
+              </div>
+
+              <!-- Here we capture the Start Year Parameter-->
+              <div class="form-group">
+                <label for="release-year">Release Year (Optional):</label>
+                <input type="text" class="form-control" id="release-year">
+              </div>
+
+              <!-- Here we capture the End Year Parameter -->
+              <div class="form-group">
+                <label for="title">title (Optional):</label>
+                <input type="text" class="form-control" id="title">
+              </div>
+
+              <!-- Here we have our final submit button -->
+              <button type="submit" class="btn btn-default" id="run-search">
+                <i class="fa fa-search"></i> Search</button>
+              <button class="btn btn-default" id="clear-all">
+                <i class="fa fa-trash"></i> Clear Results</button>
+
+            </form>
+          </div>
         </div>
-        
+      </div>
     </div>
-  </body>
+
+    <!-- This row will handle all of the retrieved articles -->
+    <div class="row">
+      <div class="col-sm-12">
+        <br>
+
+        <!-- This card will initially be made up of a card and wells for each of the articles retrieved -->
+        <div class="card">
+
+          <!-- card Heading for the retrieved articles box -->
+          <div class="card-header">
+            <strong>
+              <i class="fa fa-table"></i> Top Articles</strong>
+          </div>
+
+          <!-- This main card will hold each of the resulting articles -->
+          <div class="card-body" id="article-section">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Region -->
+    <div class="row">
+      <div class="col-sm-12">
+
+        <!-- Line Break followed by closing -->
+        <hr>
+        <h5 class="text-center">
+          <small>Made with lots and lots of
+            <i class="fa fa-heart"></i>
+          </small>
+        </h5>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- jQuery JS -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+  <!-- Code to the JavaScript File -->
+  <script src="script.js"></script>
+
+</body>
+
 </html>
