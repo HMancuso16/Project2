@@ -26,8 +26,14 @@ form.login {
   padding-bottom: 30px;
 }
 
+.center{
+  display: flex;
+align-items: center;
+justify-content: center;
+margin-top:50px;
+}
 
-/* .search {
+.search {
   display: table;
 }
 .search input {
@@ -100,7 +106,7 @@ html {
 }
 *:before, *:after {
   box-sizing: inherit;
-} */
+}
 
 body {
   min-height: 100vh;
